@@ -1,0 +1,17 @@
+name: External Event Trigger
+
+on:
+  repository_dispatch:
+    types:
+      - my-custom-event
+
+jobs:
+  trigger-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Display Message
+        run: echo "Workflow triggered by an external event!"
